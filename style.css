@@ -1,0 +1,86 @@
+body {
+  background-image: linear-gradient(#000000, #212121);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #d6d6ea;
+  font-family: Optima;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.7);
+}
+
+.container-aplicativo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid #d6d6ea;
+  border-radius: 20px;
+  padding: 40px 24px 40px 24px;
+  background-image: linear-gradient(#8364e8, #d397fa);
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.7);
+}
+
+.capa {
+  box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.7);
+  border-radius: 20px;
+}
+
+button {
+  background-color: inherit;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.5s ease;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#informacoes-faixa {
+  margin: 16px;
+}
+
+#capitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+#nome-autor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+#anterior, #proximo {
+  font-size: 3rem;
+}
+
+#play-pause {
+  font-size: 4rem;
+}
+
+#container-botoes {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-image: linear-gradient(#cad0ff, #e3e3e3);
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.7);
+}
+
+
+.bi-play-circle-fill {
+  transition: color 5s ease;
+}
+
+.bi-pause-circle {
+  transition: color 5s ease;
+}

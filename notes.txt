@@ -1,0 +1,77 @@
+ANOTAÇÕES
+
+Criei inicialmente o arquivo base index.html, que contém todas as marcações de textos, imagens, botões e áudio. Elas estão separadas pelas divs e identificadas individualmente por atributos ID.
+
+Foi adicionado um favicon juntamente com o título da página/nome do aplicativo.
+
+Incorporei o CDN Bootstrap 5 para utilizar os ícones de avançar, retroceder e play.
+
+
+SOBRE O JAVASCRIPT
+
+Declaramos as variáveis com um nome qualquer para cada uma. Após, usamos a propriedade document.getElementById para o JavaScript saber qual elemento será carregado em cada variável.
+
+Definimos o número de capítulos (10) e uma variável para saber se no momento o áudio está tocando ou não com os valores 0 e 1.
+
+Criamos as funções, que irão executar as ações desejadas dentro do código.
+
+A primeira tocarFaixa quando for ativada, irá buscar o áudio, irá remover o botão de play e imediatamente substituí-lo pelo botão de pause.
+
+A segunda função pausarFaixa também irá buscar o áudio e fazer a mesma ação realizada anteriormente, mas agora remove o botão de pausa e adiciona o botão de play.
+
+A terceira função é a tocarOuPausar. Nela temos uma condicional, ou seja, o JavaScript irá verificar a variável taTocando. Caso o valor seja 0 (não está tocando), ele irá ativar a função tocarFaixa e mudar o valor da let taTocando para 1, indicando que naquele momento um áudio está sendo reproduzido.
+
+Caso o valor da variável taTocando seja diferente de 0, irá pausar o áudio e mudar o valor da let taTocando para 0. E assim retornamos ao ponto de partida, com o áudio pausado.
+
+A quarta função irá ler o que está escrito (innerText) na variável nomeCapitulo e modificar com a palavra 'Capítulo ' e irá somar o número do capítulo atual. Assim teremos na interface o texto mostrando exatamente qual capítulo está tocando.
+
+A quinta e sexta funções os botões avançar ou retroceder os áudios.
+
+Temos novamente uma condicional, que irá verificar se o capítulo atual é igual ao númeroCapitulos. Se for, quer dizer que estamos no último capítulo disponível. Se isso for verdadeiro, o valor de capituloAtual será modificado para 1, ou seja, retornaremos ao primeiro capítulo.
+
+Caso contrário, a função pegará o capituloAtual e somará 1 nele, resultando nos próximos capítulos até chegar no 10 e voltamos ao início novamente.
+
+Ainda dentro da função próxima faixa o JavaScript irá acessar a variável audioCapitulo e mudar o que está escrito no source para que ao clicar no botão PRÓXIMO, o áudio correto seja executado. Isso pode ser visto nesse trecho:
+audioCapitulo.src = "./books/dom-casmurro/" + capituloAtual + '.mp3';
+Aqui mudaremos dinamicamente o que está escrito em src, usando o valor do capituloAtual para mudar corretamente as faixas.
+
+Já a sexta função funciona de maneira semelhante à anterior, mas ao invés de adicionar um número para avançar faixa, irá subtrair, para voltar uma faixa de áudio.
+
+
+Por fim, temos 3 eventos relacionados aos botões de Play-Pause, Avançar e Voltar, que serão ativados APENAS com o click do mouse.
+
+E ocorrendo o click, as funções tocarOuPausar, proximaFaixa e voltarFaixa serão ativadas.
+
+------------------------------------------------------------
+
+Variável é uma CAIXINHA que guarda uma informação. Para criar uma variável usar-se LET ou CONST.
+
+CONST é uma constante. Você a usa quando o valor presente nela não sofrer alteração na aplicação. No caso do aplicativo o valor dos capítulos é fixo (10 capítulos).
+
+LET é usado quando a quantidade da variável pode ser alterada durante o projeto.
+
+VAR é uma herança de um JavaScript passado, antes de ter LET e CONST. O VAR ainda existe, mas está ultrapassado.
+
+Uma FUNÇÃO no JavaScript é uma funcionalidade que você prepara e usa quando for conveniente. Por exemplo, ela ser executada ao clicar com o mouse. Às vezes uma função precisa de uma informação adicional para funcionar, como no caso de uma função de dar parabéns para uma pessoa em seu aniversário. Após o nome da função, você coloca essa informação adicional entre parênteses. Caso não precise da informação adicional deixe os parênteses em branco.
+
+Os parênteses em branco indica que aquilo deve ser executado quando o navegador estiver lendo o código e passar por aquele ponto.
+
+Um EVENTO no JavaScript é quando ocorre qualquer interação do usuário. No exemplo desse aplicativo usamos o addEventListener. Usamos esse evento para quando uma pessoa clicar nos botões de navegação do audiobook, alguma das funções que criamos anteriormente seja executada APENAS quando o click acontecer.
+
+Exemplo:
+
+botaoPlayPause.addEventListener('click', tocarFaixa);
+botaoPlayPause.onclick(tocarFaixa);
+
+Esses dois eventos acima são equivalentes. A diferença é que o addEventListener é utilizado para vários eventos, não só o de CLICK. Já o de baixo é uma versão abreviada que vai funcionar somente com click do mouse.
+
+Obs: Precisaria de parênteses no tocarFaixa do primeiro exemplo? Não, pois quando o navegador está lendo o código, se chegasse nessa linha, ele iria executar o tocarFaixa automaticamente. E não queremos isso. Só queremos que a faixa seja tocada quando CLICAR. Por isso que o EVENTO de CLICAR ativará a função de tocarFaixa.
+
+
+let taTocando = 0;
+Colocamos 0 (ou 'false' ou qualquer outro caractere) para indicar que quando a página for carregada é informado ao navegador que naquele momento a música está pausada. Por outro lado, podemos usar '1' ou 'true' para dizer que a música está tocando. E usamos o let, pois a informação é trocada durante a execução do código.
+
+
+Pode-se notar que as variaveis são escritas sempre da mesma forma, com a primeira palavra em minúsculo e a segunda com a primeira letra em maíuscula. Esse estilo de nomenclatura é conhecido como camelCase. Nesse estilo, o nome de uma variável é escrito com todas as palavras unidas e cada palavra subsequente começando com uma letra maiúscula, exceto a primeira palavra, que começa com letra minúscula.
+
+Este estilo é amplamente adotado em muitas linguagens de programação, incluindo JavaScript, Python, Java, C#, entre outras. Ele é preferido por sua clareza e facilidade de leitura.
